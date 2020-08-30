@@ -1,3 +1,8 @@
-.App {
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
 
+.App{
+    overflow: hidden;
 }

@@ -7,12 +7,20 @@ import MapChart from './mapChart';
 
 import ReactTooltip from "react-tooltip";
 
+import Typography from '@material-ui/core/Typography';
+
+import PieChart from './pieChart';
+import Chart from './chart';
+
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
         marginTop: '30px',
+    },
+
+    map: {
+        margin: '0',
+        padding: '0 1.5rem',
     },
 }));
 
@@ -23,11 +31,14 @@ export default function CenteredGrid() {
         <div>
             <Search />
             <Paper className={classes.paper}>
-                <MapChart />
+                <MapChart setTooltipContent={setContent} className={classes.map} />
                 <ReactTooltip>{content}</ReactTooltip>
             </Paper>
+
             <Paper className={classes.paper}>
-                <p>Блок</p>
+                <Typography>Общая статистика</Typography>
+                <PieChart />
+                <Chart />
             </Paper>
             <Paper className={classes.paper}>
                 <p>Блок</p>
