@@ -25,7 +25,7 @@ export default function CenteredGrid() {
         <Paper className={classes.paper}>
             <List component="nav" aria-label="secondary mailbox folders">
                 <ListItem button>
-                    <ListItemText primary="Пункт" />
+                    <ListItemText primary="Выбор страны" />
                 </ListItem>
                 <ListItem button>
                     <ListItemText primary="Пункт" />
