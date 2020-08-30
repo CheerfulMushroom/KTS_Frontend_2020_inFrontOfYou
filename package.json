@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "bar-chart-simple": "^2.0.2",
     "react-charts": "^2.0.0-beta.7"
   }
 }

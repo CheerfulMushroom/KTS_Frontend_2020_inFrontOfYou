@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import PieChart from './pieChart';
 import Chart from './chart';
 
+import Today from './today';
+
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '0',
         padding: '0 1.5rem',
     },
+
 }));
 
 export default function CenteredGrid() {
@@ -41,10 +44,8 @@ export default function CenteredGrid() {
                 <Chart />
             </Paper>
             <Paper className={classes.paper}>
-                <p>Блок</p>
-            </Paper>
-            <Paper className={classes.paper}>
-                <p>Блок</p>
+                <Typography>Сегодня</Typography>
+                <Today />
             </Paper>
         </div>
     );

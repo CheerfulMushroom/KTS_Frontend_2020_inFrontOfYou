@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
 
     container: {
         marginTop: '80px',
-        paddingLeft: '10px',
-        paddingRight: '10px',
+        // paddingLeft: '10px',
+        // paddingRight: '10px',
     },
 }));
 

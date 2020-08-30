@@ -23,10 +23,10 @@ export default function CenteredGrid() {
                     <ListItemText primary="Выбор страны" />
                 </ListItem>
                 <ListItem button>
-                    <ListItemText primary="Пункт" />
+                    <ListItemText primary="Общая статистика" />
                 </ListItem>
                 <ListItem button>
-                    <ListItemText primary="Пункт" />
+                    <ListItemText primary="Сегодня" />
                 </ListItem>
                 <ListItem button>
                     <ListItemText primary="Пункт" />
