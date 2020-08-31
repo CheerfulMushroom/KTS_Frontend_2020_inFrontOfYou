@@ -38,9 +38,6 @@ export default class MapChart extends React.Component {
     static defaultProps = {
         countriesData: [],
     }
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-    }
 
     render() {
         const countriesData = this.props.countriesData;
