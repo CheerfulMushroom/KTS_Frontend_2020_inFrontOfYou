@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import React from 'react'
+import {ChartComponent} from 'bar-chart-simple'
 
-import Typography from '@material-ui/core/Typography';
+let data = [{
+    "data_category": "USA",
+    "data_value": 2025
+}, {
+    "data_category": "China",
+    "data_value": 1882
+}];
 
-import BarCharts from './barChart';
-
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        marginTop: '30px',
-    },
-}));
-
-export default function CenteredGrid() {
-    const classes = useStyles();
+export default function barChart() {
     return (
-        <Paper elevation={3} className={classes.paper}>
-            <Typography>Угрозы</Typography>
-            <BarCharts />
-        </Paper>
-);
+        <ChartComponent data={data} chart_type="bar_chart"/>
+    );
 }

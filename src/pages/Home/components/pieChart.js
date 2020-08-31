@@ -1,7 +1,6 @@
-import { PieChart } from 'react-minimal-pie-chart';
 import React from "react";
-
 import { makeStyles } from '@material-ui/core/styles';
+import { PieChart } from 'react-minimal-pie-chart';
 
 const useStyles = makeStyles((theme) => ({
     container: {

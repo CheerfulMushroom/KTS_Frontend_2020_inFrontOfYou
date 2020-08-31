@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
+import ReactTooltip from "react-tooltip";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-
+import Typography from '@material-ui/core/Typography';
 import Search from './search';
 import MapChart from './mapChart';
-
-import ReactTooltip from "react-tooltip";
-
-import Typography from '@material-ui/core/Typography';
-
 import PieChart from './pieChart';
 import Chart from './chart';
-
 import Today from './today';
+import Threats from './threats';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -46,6 +42,10 @@ export default function CenteredGrid() {
             <Paper className={classes.paper}>
                 <Typography>Сегодня</Typography>
                 <Today />
+            </Paper>
+            <Paper className={classes.paper}>
+                <Typography>Угрозы</Typography>
+                <Threats />
             </Paper>
         </div>
     );

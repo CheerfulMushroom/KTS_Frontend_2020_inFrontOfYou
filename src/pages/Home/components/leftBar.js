@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -29,10 +28,10 @@ export default function CenteredGrid() {
                     <ListItemText primary="Сегодня" />
                 </ListItem>
                 <ListItem button>
-                    <ListItemText primary="Пункт" />
+                    <ListItemText primary="Угрозы" />
                 </ListItem>
                 <ListItem button>
-                    <ListItemText primary="Пункт" />
+                    <ListItemText primary="Сравнения" />
                 </ListItem>
             </List>
         </Paper>
