@@ -1,7 +1,9 @@
 import React, { memo } from "react";
 import {
-    ZoomableGroup,
     ComposableMap,
+    Sphere,
+    Graticule,
+    ZoomableGroup,
     Geographies,
     Geography
 } from "react-simple-maps";
@@ -20,9 +22,14 @@ const rounded = num => {
 };
 
 const MapChart = ({ setTooltipContent }) => {
+    const width = 1200;
+    const height = 600;
+
     return (
-        <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
-            <ZoomableGroup>
+        <ComposableMap data-tip="" width={width} height={height} projectionConfig={{ scale: 200 }}>
+            <ZoomableGroup translateExtent={[[0, 0], [width, height]]}>
+                <Sphere stroke="#DDD" />
+                <Graticule stroke="#DDD" />
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                         geographies.map(geo => (
@@ -42,11 +49,11 @@ const MapChart = ({ setTooltipContent }) => {
                                         outline: "none"
                                     },
                                     hover: {
-                                        fill: "#F53",
+                                        fill: "#3082d2",
                                         outline: "none"
                                     },
                                     pressed: {
-                                        fill: "#E42",
+                                        fill: "#3082d2",
                                         outline: "none"
                                     }
                                 }}

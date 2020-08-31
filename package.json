@@ -15,7 +15,7 @@
     "react-dom": "^16.13.1",
     "react-minimal-pie-chart": "latest",
     "react-scripts": "3.4.3",
-    "react-simple-maps": "2.1.2",
+    "react-simple-maps": "git+https://github.com/CheerfulMushroom/react-simple-maps.git",
     "react-tooltip": "latest"
   },
   "scripts": {
