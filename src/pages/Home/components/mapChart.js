@@ -22,11 +22,12 @@ const rounded = num => {
 };
 
 const MapChart = ({ setTooltipContent }) => {
-    const width = 1200;
     const height = 600;
+    const width = 1200
+    const scale = 200;
 
     return (
-        <ComposableMap data-tip="" width={width} height={height} projectionConfig={{ scale: 200 }}>
+        <ComposableMap data-tip="" width={width} height={height} projectionConfig={{ scale: scale }}>
             <ZoomableGroup translateExtent={[[0, 0], [width, height]]}>
                 <Sphere stroke="#DDD" />
                 <Graticule stroke="#DDD" />
