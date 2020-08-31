@@ -30,6 +30,7 @@ export default function CenteredGrid() {
     const [content, setContent] = useState("");
     const [casesData, setCasesData] = useState([])
 
+    // TODO: where to put this logic
     useEffect(()=>{
         (async () => {
             const countriesRawData = await getCountryStatistics();

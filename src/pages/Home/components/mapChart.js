@@ -14,7 +14,6 @@ import PropTypes from "prop-types";
 const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-
 const rounded = num => {
     if (num > 1000000000) {
         return Math.round(num / 100000000) / 10 + "Bn";
