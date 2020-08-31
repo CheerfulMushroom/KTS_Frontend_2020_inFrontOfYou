@@ -7,15 +7,17 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "d3-scale": "^3.2.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-chart": "latest",
     "react-dom": "^16.13.1",
     "react-minimal-pie-chart": "latest",
     "react-scripts": "3.4.3",
-    "react-simple-maps": "2.1.2",
+    "react-simple-maps": "git+https://github.com/CheerfulMushroom/react-simple-maps.git",
     "react-tooltip": "latest"
   },
   "scripts": {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactTooltip from "react-tooltip";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -9,6 +9,8 @@ import PieChart from './pieChart';
 import Chart from './chart';
 import Today from './today';
 import Threats from './threats';
+
+import {getCountryStatistics} from "../../../utils/apiService";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -26,11 +28,30 @@ const useStyles = makeStyles((theme) => ({
 export default function CenteredGrid() {
     const classes = useStyles();
     const [content, setContent] = useState("");
+    const [casesData, setCasesData] = useState([])
+
+    // TODO: where to put this logic
+    useEffect(()=>{
+        (async () => {
+            const countriesRawData = await getCountryStatistics();
+            const newCasesData = Object.values(countriesRawData)
+                .map((countryRawData)=>{
+                    return {
+                        countryCode: countryRawData.code,
+                        value: countryRawData.total_new_cases_today
+                    }
+                })
+            setCasesData(newCasesData);
+        })()
+    }, [])
+
+
+
     return (
         <div>
             <Search />
             <Paper className={classes.paper}>
-                <MapChart setTooltipContent={setContent} className={classes.map} />
+                <MapChart setTooltipContent={setContent} countriesData={casesData} className={classes.map} />
                 <ReactTooltip>{content}</ReactTooltip>
             </Paper>
 
