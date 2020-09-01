@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home";
 import { Router } from "react-router-dom";
 import { Route } from "react-router";
 import history from "./history";
-import Comparison from "./pages/Сomparison/Comparison";
+import Comparison from "./pages/Comparison/Comparison";
 import History from "./pages/History/History";
 
 const App = () => (
