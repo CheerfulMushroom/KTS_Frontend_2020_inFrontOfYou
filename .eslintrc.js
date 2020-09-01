@@ -10,7 +10,7 @@ module.exports = {
       .map((ruleFileName) => `./${ruleFileName}`),
   ],
   rules: {
-    "prettier/prettier": "off",
+    "prettier/prettier": "on",
   },
   overrides: [
     {
