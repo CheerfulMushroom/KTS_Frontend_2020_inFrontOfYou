@@ -6,7 +6,7 @@ import {
     Graticule,
     ZoomableGroup,
     Geographies,
-    Geography
+    Geography,
 } from "react-simple-maps";
 import PropTypes from "prop-types";
 
@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
 const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const rounded = num => {
+const rounded = (num) => {
     if (num > 1000000000) {
         return Math.round(num / 100000000) / 10 + "Bn";
     } else if (num > 1000000) {
@@ -42,7 +42,7 @@ export default class MapChart extends React.Component {
     render() {
         const countriesData = this.props.countriesData;
 
-        const allCountriesValues = countriesData.map((countryData => countryData.value))
+        const allCountriesValues = countriesData.map(((countryData) => countryData.value));
         const maxValue = Math.max(...allCountriesValues);
         const minValue = Math.min(...allCountriesValues);
 
@@ -62,8 +62,10 @@ export default class MapChart extends React.Component {
                     <Graticule stroke="#DDD"/>
                     <Geographies geography={geoUrl}>
                         {({geographies}) =>
-                            geographies.map(geo => {
-                                const countryData = countriesData.find((country) => country.countryCode === geo.properties.ISO_A2)
+                            geographies.map((geo) => {
+                                const countryData = countriesData.find(
+                                    (country) => country.countryCode === geo.properties.ISO_A2
+                                );
 
                                 let color;
                                 if (countryData === undefined) {
@@ -78,7 +80,11 @@ export default class MapChart extends React.Component {
                                     geography={geo}
                                     onMouseEnter={() => {
                                         const {NAME} = geo.properties;
-                                        this.props.setTooltipContent(`${NAME} — ${countryData !== undefined ? rounded(countryData.value) : 'N/A'}`);
+                                        this.props.setTooltipContent(
+                                            `${NAME} — ${
+                                                countryData !== undefined ? rounded(countryData.value) : "N/A"
+                                            }`
+                                        );
                                     }}
                                     onMouseLeave={() => {
                                         this.props.setTooltipContent("");
@@ -87,23 +93,23 @@ export default class MapChart extends React.Component {
                                         default: {
                                             fill: color,
                                             outline: "none",
-                                            stroke: '#b1b1b1',
+                                            stroke: "#b1b1b1",
                                             strokeWidth: 0.5,
                                             transition: "500ms",
                                         },
                                         hover: {
                                             fill: "#e4e4e4",
                                             outline: "none",
-                                            stroke: '#b1b1b1',
+                                            stroke: "#b1b1b1",
                                             strokeWidth: 0.5,
                                             transition: "500ms",
                                         },
                                         pressed: {
                                             fill: "#e4e4e4",
-                                            outline: "none"
-                                        }
+                                            outline: "none",
+                                        },
                                     }}
-                                />
+                                />;
                             })
                         }
                     </Geographies>

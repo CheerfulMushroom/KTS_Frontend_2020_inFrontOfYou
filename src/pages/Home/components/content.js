@@ -1,26 +1,26 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import ReactTooltip from "react-tooltip";
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Search from './search';
-import MapChart from './mapChart';
-import PieChart from './pieChart';
-import Chart from './chart';
-import Today from './today';
-import Threats from './threats';
+import {makeStyles} from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Search from "./search";
+import MapChart from "./mapChart";
+import PieChart from "./pieChart";
+import Chart from "./chart";
+import Today from "./today";
+import Threats from "./threats";
 
 import {getCountryStatistics} from "../../../utils/apiService";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
-        marginTop: '30px',
+        marginTop: "30px",
     },
 
     map: {
-        margin: '0',
-        padding: '0 1.5rem',
+        margin: "0",
+        padding: "0 1.5rem",
     },
 
 }));
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CenteredGrid() {
     const classes = useStyles();
     const [content, setContent] = useState("");
-    const [casesData, setCasesData] = useState([])
+    const [casesData, setCasesData] = useState([]);
 
     // TODO: where to put this logic
     useEffect(()=>{
@@ -38,13 +38,12 @@ export default function CenteredGrid() {
                 .map((countryRawData)=>{
                     return {
                         countryCode: countryRawData.code,
-                        value: countryRawData.total_new_cases_today
-                    }
-                })
+                        value: countryRawData.total_new_cases_today,
+                    };
+                });
             setCasesData(newCasesData);
-        })()
-    }, [])
-
+        })();
+    }, []);
 
 
     return (
