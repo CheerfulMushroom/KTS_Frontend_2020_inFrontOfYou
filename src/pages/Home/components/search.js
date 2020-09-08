@@ -1,9 +1,9 @@
-import React from "react";
-import {fade, makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import InputBase from "@material-ui/core/InputBase";
+import Toolbar from "@material-ui/core/Toolbar";
+import {fade, makeStyles} from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
     search: {

@@ -1,5 +1,5 @@
+import Header from "pages/Home/components/header";
 import React from "react";
-import Header from "../Home/components/header";
 
 import BlockTrend from "./components/blockTrend";
 

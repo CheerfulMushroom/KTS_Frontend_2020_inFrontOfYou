@@ -18,7 +18,8 @@
     "node": true
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "import"
   ],
   "extends": [
     "google",
@@ -40,7 +41,23 @@
       {
         "code": 120
       }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object"
+        ],
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
     ]
-
   }
 }

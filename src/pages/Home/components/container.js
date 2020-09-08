@@ -1,8 +1,8 @@
-import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import LeftBar from "./leftBar";
+import {makeStyles} from "@material-ui/core/styles";
+import React from "react";
 import Content from "./content";
+import LeftBar from "./leftBar";
 
 
 const useStyles = makeStyles((theme) => ({

@@ -1,11 +1,15 @@
+import Comparison from "pages/Comparison/Comparison";
+import History from "pages/History/History";
+import Home from "pages/Home/Home";
 import React from "react";
-import "./App.css";
-import {Router} from "react-router-dom";
 import {Route} from "react-router";
-import Home from "./pages/Home/Home";
+import {Router} from "react-router-dom";
+
 import history from "./history";
-import Comparison from "./pages/Comparison/Comparison";
-import History from "./pages/History/History";
+
+import "./App.css";
+
+
 
 const App = () => (
     <div className="App">

@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from "react";
-import ReactTooltip from "react-tooltip";
-import {makeStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import {makeStyles} from "@material-ui/core/styles";
+import React, {useEffect, useState} from "react";
+import ReactTooltip from "react-tooltip";
 import {getCountryStatistics} from "utils/apiService";
-import Search from "./search";
+import Chart from "./chart";
 import MapChart from "./mapChart";
 import PieChart from "./pieChart";
-import Chart from "./chart";
-import Today from "./today";
+import Search from "./search";
 import Threats from "./threats";
+import Today from "./today";
 
 
 const useStyles = makeStyles((theme) => ({

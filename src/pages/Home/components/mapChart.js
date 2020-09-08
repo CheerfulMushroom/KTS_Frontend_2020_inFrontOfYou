@@ -1,5 +1,6 @@
-import React from "react";
 import {scaleLinear} from "d3-scale";
+import PropTypes from "prop-types";
+import React from "react";
 import {
     ComposableMap,
     Sphere,
@@ -8,7 +9,6 @@ import {
     Geographies,
     Geography,
 } from "react-simple-maps";
-import PropTypes from "prop-types";
 
 
 const geoUrl =
