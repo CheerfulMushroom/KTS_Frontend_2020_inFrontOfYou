@@ -2,7 +2,6 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import React, {useEffect, useState} from "react";
-import ReactTooltip from "react-tooltip";
 import {getCountryStatistics} from "utils/apiService";
 import Chart from "./chart";
 import MapChart from "./mapChart";
@@ -27,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid() {
     const classes = useStyles();
-    const [content, setContent] = useState("");
     const [casesData, setCasesData] = useState([]);
 
     // TODO: where to put this logic
@@ -50,8 +48,7 @@ export default function CenteredGrid() {
         <div>
             <Search />
             <Paper className={classes.paper}>
-                <MapChart setTooltipContent={setContent} countriesData={casesData} className={classes.map} />
-                <ReactTooltip>{content}</ReactTooltip>
+                <MapChart countriesData={casesData} className={classes.map} />
             </Paper>
 
             <Paper className={classes.paper}>

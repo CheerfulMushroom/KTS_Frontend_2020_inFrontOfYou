@@ -9,6 +9,7 @@ import {
     Geographies,
     Geography,
 } from "react-simple-maps";
+import ReactTooltip from "react-tooltip";
 
 
 const geoUrl =
@@ -27,16 +28,23 @@ const rounded = (num) => {
 };
 
 export default class MapChart extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {tooltipLabel: ""}
+    }
+
     static propTypes = {
-        setTooltipContent: PropTypes.func.isRequired,
         countriesData: PropTypes.arrayOf(PropTypes.shape({
             countryCode: PropTypes.string.isRequired,
             value: PropTypes.number.isRequired,
         })),
+        tooltipLabel: PropTypes.string
     }
 
     static defaultProps = {
         countriesData: [],
+        tooltipLabel: ""
     }
 
     render() {
@@ -56,65 +64,58 @@ export default class MapChart extends React.Component {
         const scale = 400;
 
         return (
-            <ComposableMap data-tip="" width={width} height={height} projectionConfig={{scale: scale}}>
-                <ZoomableGroup translateExtent={[[0, 0], [width, height]]}>
-                    <Sphere stroke="#DDD"/>
-                    <Graticule stroke="#DDD"/>
-                    <Geographies geography={geoUrl}>
-                        {({geographies}) =>
-                            geographies.map((geo) => {
-                                const countryData = countriesData.find(
-                                    (country) => country.countryCode === geo.properties.ISO_A2
-                                );
+            <>
+                <ComposableMap data-tip="" width={width} height={height} projectionConfig={{scale: scale}}>
+                    <ZoomableGroup translateExtent={[[0, 0], [width, height]]}>
+                        <Sphere stroke="#DDD"/>
+                        <Graticule stroke="#DDD"/>
+                        <Geographies geography={geoUrl}>
+                            {({geographies}) =>
+                                geographies.map((geo) => {
+                                    const countryData = countriesData.find(
+                                        (country) => country.countryCode === geo.properties.ISO_A2
+                                    );
 
-                                let color;
-                                if (countryData === undefined) {
-                                    color = "#D6D6DA";
-                                } else {
-                                    color = colorScale(countryData.value);
-                                }
+                                    const color = countryData ? colorScale(countryData.value) : "#D6D6DA";
 
-
-                                return <Geography
-                                    key={geo.rsmKey}
-                                    geography={geo}
-                                    onMouseEnter={() => {
-                                        const {NAME} = geo.properties;
-                                        this.props.setTooltipContent(
-                                            `${NAME} — ${
-                                                countryData !== undefined ? rounded(countryData.value) : "N/A"
-                                            }`
-                                        );
-                                    }}
-                                    onMouseLeave={() => {
-                                        this.props.setTooltipContent("");
-                                    }}
-                                    style={{
-                                        default: {
-                                            fill: color,
-                                            outline: "none",
-                                            stroke: "#b1b1b1",
-                                            strokeWidth: 0.5,
-                                            transition: "500ms",
-                                        },
-                                        hover: {
-                                            fill: "#e4e4e4",
-                                            outline: "none",
-                                            stroke: "#b1b1b1",
-                                            strokeWidth: 0.5,
-                                            transition: "500ms",
-                                        },
-                                        pressed: {
-                                            fill: "#e4e4e4",
-                                            outline: "none",
-                                        },
-                                    }}
-                                />;
-                            })
-                        }
-                    </Geographies>
-                </ZoomableGroup>
-            </ComposableMap>
+                                    return <Geography
+                                        key={geo.rsmKey}
+                                        geography={geo}
+                                        onMouseEnter={() => {
+                                            const {NAME} = geo.properties;
+                                            const newTooltipLabel =
+                                                `${NAME} — ${countryData ? rounded(countryData.value) : "N/A"}`;
+                                            this.setState({tooltipLabel: newTooltipLabel})
+                                        }}
+                                        onMouseLeave={() => this.setState({tooltipLabel: ""})}
+                                        style={{
+                                            default: {
+                                                fill: color,
+                                                outline: "none",
+                                                stroke: "#b1b1b1",
+                                                strokeWidth: 0.5,
+                                                transition: "500ms",
+                                            },
+                                            hover: {
+                                                fill: "#e4e4e4",
+                                                outline: "none",
+                                                stroke: "#b1b1b1",
+                                                strokeWidth: 0.5,
+                                                transition: "500ms",
+                                            },
+                                            pressed: {
+                                                fill: "#e4e4e4",
+                                                outline: "none",
+                                            },
+                                        }}
+                                    />;
+                                })
+                            }
+                        </Geographies>
+                    </ZoomableGroup>
+                </ComposableMap>
+                <ReactTooltip>{this.state.tooltipLabel}</ReactTooltip>
+            </>
         );
     }
 };
