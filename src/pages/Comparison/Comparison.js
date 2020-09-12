@@ -1,5 +1,5 @@
-import Header from "pages/Home/components/header";
 import React from "react";
+import Header from "shared/components/header";
 import BlockCompare from "./components/blockCompare";
 
 export default function Comparison() {
