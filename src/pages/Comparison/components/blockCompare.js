@@ -2,8 +2,8 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
-import Threats from "pages/Home/components/threats";
 import React from "react";
+import Threats from "shared/components/threats";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
