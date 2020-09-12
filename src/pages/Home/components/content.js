@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function CenteredGrid() {
+export default function Content() {
     const classes = useStyles();
     const [casesData, setCasesData] = useState([]);
 
@@ -45,7 +45,7 @@ export default function CenteredGrid() {
 
 
     return (
-        <div>
+        <>
             <Search />
             <Paper className={classes.paper}>
                 <MapChart countriesData={casesData} className={classes.map} />
@@ -64,6 +64,6 @@ export default function CenteredGrid() {
                 <Typography>Угрозы</Typography>
                 <Threats />
             </Paper>
-        </div>
+        </>
     );
 }

@@ -1,13 +1,9 @@
 import React from "react";
-import Header from "shared/components/header";
-import Container from "./components/container";
+import Content from "./components/content";
 
 
 export default function Home() {
     return (
-        <div>
-            <Header />
-            <Container />
-        </div>
+        <Content/>
     );
 }

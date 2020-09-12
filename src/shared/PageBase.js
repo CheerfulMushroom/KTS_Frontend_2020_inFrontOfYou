@@ -1,9 +1,9 @@
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 import React from "react";
-import Content from "./content";
-import LeftBar from "./leftBar";
-
+import Header from "./components/header";
+import LeftBar from "./components/leftBar";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -11,18 +11,27 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CenteredGrid() {
+
+function PageBase(props) {
     const classes = useStyles();
+
     return (
-        <div className={classes.root}>
+        <>
+            <Header/>
             <Grid container spacing={3} className={classes.container}>
                 <Grid item xs={3} className={classes.menu}>
-                    <LeftBar />
+                    <LeftBar/>
                 </Grid>
                 <Grid item xs={9} className={classes.content}>
-                    <Content />
+                    {props?.children}
                 </Grid>
             </Grid>
-        </div>
-    );
+        </>
+    )
 }
+
+PageBase.propTypes = {
+    children: PropTypes.node.isRequired
+};
+
+export default PageBase;
