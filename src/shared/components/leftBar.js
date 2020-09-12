@@ -23,28 +23,16 @@ export default function CenteredGrid() {
     return (
         <Paper className={classes.paper}>
             <List component="nav" aria-label="secondary mailbox folders">
-                <ListItem button>
-                    <ListItemText primary="Выбор страны" />
+                <ListItem button component={NavLink} to="">
+                    <ListItemText primary="Общая статистика"/>
                 </ListItem>
-                <ListItem button>
-                    <ListItemText primary="Общая статистика" />
+                <ListItem button component={NavLink} to="compare">
+                    <ListItemText primary="Сравнения"/>
                 </ListItem>
-                <ListItem button>
-                    <ListItemText primary="Сегодня" />
+                <ListItem button component={NavLink} to="history">
+                    <ListItemText primary="История распространения"/>
                 </ListItem>
-                <ListItem button>
-                    <ListItemText primary="Угрозы" />
-                </ListItem>
-                <ListItem button>
-                    <NavLink className={classes.link} to="compare">
-                        <ListItemText primary="Сравнения" />
-                    </NavLink>
-                </ListItem>
-                <ListItem button>
-                    <NavLink className={classes.link} to="history">
-                        <ListItemText primary="История распространения" />
-                    </NavLink>
-                </ListItem>
+
             </List>
         </Paper>
     );
