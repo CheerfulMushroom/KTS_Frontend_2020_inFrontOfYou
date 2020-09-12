@@ -20,6 +20,6 @@ const data = [
     },
 ];
 
-export default function barChart() {
+export default function Threats() {
     return <ChartComponent data={data} chart_type="bar_chart" />;
 }

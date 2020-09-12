@@ -16,15 +16,16 @@ const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 const rounded = (num) => {
-    if (num > 1000000000) {
-        return Math.round(num / 100000000) / 10 + "Bn";
-    } else if (num > 1000000) {
-        return Math.round(num / 100000) / 10 + "M";
-    } else if (num > 100) {
-        return Math.round(num / 100) / 10 + "K";
-    } else {
-        return num;
+    if (num > 1e9) {
+        return Math.round(num / 1e8) / 10 + "Bn";
     }
+    if (num > 1e6) {
+        return Math.round(num / 1e5) / 10 + "M";
+    }
+    if (num > 100) {
+        return Math.round(num / 100) / 10 + "K";
+    }
+    return num;
 };
 
 export default class MapChart extends React.Component {

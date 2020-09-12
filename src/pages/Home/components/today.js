@@ -3,7 +3,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 
-export default function ClippedDrawer() {
+export default function Today() {
     return (
         <Grid container spacing={3}>
             <Grid item xs>

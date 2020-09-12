@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function ClippedDrawer() {
+export default function Header() {
     const classes = useStyles();
     return (
         <AppBar className={classes.appBar}>

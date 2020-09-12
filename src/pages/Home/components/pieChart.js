@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ClippedDrawer() {
+export default function MyPieChart() {
     const classes = useStyles();
     return (
         <PieChart className={classes.container}
