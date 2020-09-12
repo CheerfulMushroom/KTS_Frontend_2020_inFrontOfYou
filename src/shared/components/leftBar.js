@@ -32,7 +32,6 @@ export default function CenteredGrid() {
                 <ListItem button component={NavLink} to="history">
                     <ListItemText primary="История распространения"/>
                 </ListItem>
-
             </List>
         </Paper>
     );
