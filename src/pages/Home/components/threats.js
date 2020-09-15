@@ -1,25 +1,63 @@
-import React from "react";
-import {ChartComponent} from "bar-chart-simple";
+import React, {useMemo} from "react"
 
-const data = [
-    {
-        data_category: "USA",
-        data_value: 2025,
-    },
-    {
-        data_category: "China",
-        data_value: 1882,
-    },
-    {
-        data_category: "Russia",
-        data_value: 3000,
-    },
-    {
-        data_category: "France",
-        data_value: 2500,
-    },
-];
+import { Chart } from "react-charts"
+import PropTypes from "prop-types";
 
-export default function barChart() {
-    return <ChartComponent data={data} chart_type="bar_chart" />;
+export default function ChartComponent (props) {
+
+    ChartComponent.propTypes = {
+        daysData: PropTypes.array
+    };
+
+    let currentData = [[0, 0],[0, 0],[0, 0]];
+    if (props.daysData){
+        currentData = props.daysData;
+    }
+
+    const data = useMemo(
+        () => [
+            {
+                label: "Выздоравления",
+                data: currentData[1]
+            },
+            {
+                label: "Смерти",
+                data: currentData[2]
+            },
+            {
+                label: "Заражения",
+                data: currentData[0]
+            }
+        ],
+        [currentData]
+    )
+
+    const series = useMemo(
+        () => ({
+            type: "bar"
+        }),
+        []
+    )
+
+    const axes = useMemo(
+        () => [
+            { primary: true, type: "ordinal", position: "left" },
+            { position: "top", type: "linear", stacked: true }
+        ],
+        []
+    )
+
+    return (
+    // <Chart key={props.daysData} data={data} series={series} axes={axes} tooltip />
+
+        <div
+            style={{
+                width: "100%",
+                height: "100%"
+            }}
+        >
+            <Chart key={props.daysData}
+                data={data} series={series} axes={axes} tooltip />
+        </div>
+    )
 }

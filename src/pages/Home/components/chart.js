@@ -1,21 +1,21 @@
 import React from "react";
 import {Chart} from "react-charts";
 
-export default function MyChart() {
+export default function MyChart(props) {
     const data = React.useMemo(
         () => [
             {
-                label: "Series 1",
+                label: "Новые случаи в день",
                 data: [
-                    [0, 1],
-                    [1, 2],
+                    [1, 1],
+                    [3, 2],
                     [2, 4],
                     [3, 2],
                     [4, 7],
                 ],
             },
             {
-                label: "Series 2",
+                label: "Смерти в день",
                 data: [
                     [0, 3],
                     [1, 1],
