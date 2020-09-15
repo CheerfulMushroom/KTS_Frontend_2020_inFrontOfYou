@@ -4,6 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Info from "./info";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
         textTransform: "uppercase",
     },
 
+    link: {
+        textDecoration: "none",
+        color: "white"
+    },
 }));
 
 export default function Header() {
@@ -24,7 +29,9 @@ export default function Header() {
         <AppBar className={classes.appBar}>
             <Toolbar>
                 <Grid item xs>
-                    <Typography>inFrontOfYou</Typography>
+                    <NavLink className={classes.link} to="/">
+                        <Typography>inFrontOfYou</Typography>
+                    </NavLink>
                 </Grid>
                 <Grid item xs={8} className={classes.title}>
                     <Typography>Статистика пандемии коронавируса</Typography>

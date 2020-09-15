@@ -3,7 +3,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
-import Threats from "shared/components/threats";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -20,7 +19,7 @@ export default function BlockCompare() {
                 <Typography>Сравнение</Typography>
             </CardContent>
             <CardContent>
-                <Threats />
+
             </CardContent>
         </Card>
     );
