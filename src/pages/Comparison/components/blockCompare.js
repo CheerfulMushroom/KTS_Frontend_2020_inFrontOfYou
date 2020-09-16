@@ -4,10 +4,11 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
 
+import Chose from "./choseBlock";
+
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
-        marginTop: "80px",
     },
 }));
 
@@ -19,7 +20,7 @@ export default function BlockCompare() {
                 <Typography>Сравнение</Typography>
             </CardContent>
             <CardContent>
-
+                <Chose />
             </CardContent>
         </Card>
     );

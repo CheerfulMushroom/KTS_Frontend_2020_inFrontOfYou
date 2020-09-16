@@ -9,7 +9,6 @@ import Theats from "../../Home/components/threats";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: "80px",
         marginBottom: "10px",
     },
     paperGraph: {
@@ -34,7 +33,7 @@ export default function BlockTrend() {
                 let flag = false;
                 for (const key in result.data.timelineitems[0]) {
                     if (result.data.timelineitems[0].hasOwnProperty(key)) {
-                        if (key === "8/30/20") flag = true;
+                        if (key === "9/01/20") flag = true;
 
                         if (flag && key !== "stat") {
                             const current = result.data.timelineitems[0][key];
