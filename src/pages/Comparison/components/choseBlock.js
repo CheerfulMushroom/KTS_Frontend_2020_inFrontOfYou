@@ -1,11 +1,19 @@
 import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
 import Columns from "./columns";
 
+const useStyles = makeStyles((theme) => ({
+    graph: {
+        fontSize: "5px",
+        color: "#f00",
+    },
+}));
+
 export default function Choose() {
+    const classes = useStyles();
 
     const [data, setData] = useState([{title: "Загрузка"}]);
     const [nameOfCounties, setNameOfCounties] = useState(["Загрузка"]);
@@ -15,10 +23,13 @@ export default function Choose() {
     const [current, setCurrent] = useState({
         "ourid":191,
         "title":"Russia",
-        "total_cases":917884,
-        "total_deaths":15617,
-        "total_new_cases_today":5061,
-        "total_new_deaths_today":119,
+        "total_cases": 917884,
+        "total_deaths": 15617,
+        "total_new_cases_today": 5061,
+        "total_new_deaths_today": 119,
+        "total_recovered": 729411,
+        "total_active_cases": 6447,
+        "total_serious_cases": 172856
     });
 
     useEffect(() => {
@@ -52,12 +63,11 @@ export default function Choose() {
     }, [value, data]);
 
     return (
-        <div style={{ width: "50%" }}>
+        <div style={{ width: "48%" }}>
             <Autocomplete
                 id="free-solo-demo"
                 freeSolo
                 options={nameOfCounties}
-
                 value={value}
                 onChange={(event, newValue) => {
                     if (typeof newValue === "string") {
@@ -75,15 +85,12 @@ export default function Choose() {
                 }}
 
                 getOptionLabel={(option) => {
-                    // Value selected with enter, right from the input
                     if (typeof option === "string") {
                         return option;
                     }
-                    // Add "xxx" option created dynamically
                     if (option.inputValue) {
                         return option.inputValue;
                     }
-                    // Regular option
                     return option.title;
                 }}
 
@@ -92,7 +99,7 @@ export default function Choose() {
                 )}
             />
 
-            <Columns coutryData={current}/>
+            <Columns className={classes.graph} coutryData={current}/>
         </div>
     );
 }
