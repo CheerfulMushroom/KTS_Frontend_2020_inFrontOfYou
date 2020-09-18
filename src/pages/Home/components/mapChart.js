@@ -49,9 +49,6 @@ export default class MapChart extends React.Component {
     }
 
     render() {
-
-        console.log(this.props.countriesData);
-
         const countriesData = this.props.countriesData;
 
         const allCountriesValues = countriesData.map(((countryData) => countryData.value));
@@ -61,7 +58,6 @@ export default class MapChart extends React.Component {
         const colorScale = scaleLinear()
             .domain([minValue, maxValue])
             .range(["#ffedea", "#ff5233"]);
-
 
         const height = 1200;
         const width = 2400

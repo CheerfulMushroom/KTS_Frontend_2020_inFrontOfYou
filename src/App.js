@@ -4,12 +4,9 @@ import Home from "pages/Home/Home";
 import React from "react";
 import {Redirect, Route, Switch} from "react-router";
 import {Router} from "react-router-dom";
-
 import history from "./history";
-
 import "./App.css";
 import PageBase from "./shared/PageBase";
-
 
 
 const App = () => (

@@ -1,4 +1,3 @@
-import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -7,8 +6,19 @@ import LeftBar from "./components/leftBar";
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        marginTop: "80px",
+        marginLeft: "3%",
+        marginRight: "3%"
     },
+    content: {
+        marginTop: "30px",
+    },
+    menu: {
+        width: "100%",
+        position: "fixed"
+    },
+    block: {
+        marginTop: "80px",
+    }
 }));
 
 
@@ -18,14 +28,14 @@ function PageBase(props) {
     return (
         <>
             <Header/>
-            <Grid container spacing={3} className={classes.container}>
-                <Grid item xs={3} className={classes.menu}>
-                    <LeftBar/>
-                </Grid>
-                <Grid item xs={9} className={classes.content}>
+            <div className={classes.container}>
+                <div className={classes.block}>
+                    <LeftBar className={classes.menu} />
+                </div>
+                <div className={classes.content}>
                     {props?.children}
-                </Grid>
-            </Grid>
+                </div>
+            </div>
         </>
     )
 }

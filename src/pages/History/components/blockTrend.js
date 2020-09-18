@@ -9,7 +9,7 @@ import Theats from "../../Home/components/threats";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginBottom: "10px",
+        marginBottom: "30px",
     },
     paperGraph: {
         height: "500px",

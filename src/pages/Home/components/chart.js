@@ -30,7 +30,7 @@ export default function Chart(props) {
             data_value: props.coutryData.total_cases,
         },
         {
-            data_category: "Выздоровления",
+            data_category: "Позитив",
             data_value: props.coutryData.total_recovered,
         }
     ];

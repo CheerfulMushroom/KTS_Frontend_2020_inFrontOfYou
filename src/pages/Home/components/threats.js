@@ -42,7 +42,7 @@ export default function ChartComponent (props) {
     const axes = useMemo(
         () => [
             { primary: true, type: "ordinal", position: "left" },
-            { position: "top", type: "linear", stacked: true }
+            { position: "bottom", type: "linear", stacked: true, color: "white"}
         ],
         []
     )
@@ -51,7 +51,7 @@ export default function ChartComponent (props) {
         <div
             style={{
                 width: "100%",
-                height: "100%"
+                height: "100%",
             }}
         >
             <Chart key={props.daysData}

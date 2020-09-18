@@ -17,12 +17,10 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         marginBottom: "30px",
     },
-
     map: {
         margin: "0",
         padding: "0 1.5rem",
     },
-
 }));
 
 export default function Content() {

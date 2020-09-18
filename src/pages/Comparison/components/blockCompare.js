@@ -8,14 +8,17 @@ import Choose from "./choseBlock";
 const useStyles = makeStyles((theme) => ({
     choosing: {
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+    },
+    container: {
+        marginBottom: "30px"
     },
 }));
 
 export default function BlockCompare() {
     const classes = useStyles();
     return (
-        <Card variant="outlined">
+        <Card variant="outlined" className={classes.container}>
             <CardContent>
                 <Typography>Сравнение</Typography>
             </CardContent>
