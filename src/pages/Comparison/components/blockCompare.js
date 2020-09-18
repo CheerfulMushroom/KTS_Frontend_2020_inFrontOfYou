@@ -20,7 +20,8 @@ export default function BlockCompare() {
                 <Typography>Сравнение</Typography>
             </CardContent>
             <CardContent className={classes.choosing}>
-                <Choose />
+                <Choose color={"#51d0de"}/>
+                <Choose color={"#791e94"}/>
             </CardContent>
         </Card>
     );

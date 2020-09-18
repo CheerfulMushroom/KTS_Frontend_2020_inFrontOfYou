@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
+    "bit": "^1.0.20",
     "d3-scale": "^3.2.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -21,7 +22,8 @@
     "react-router-redux": "^4.0.8",
     "react-scripts": "3.4.3",
     "react-simple-maps": "git+https://github.com/CheerfulMushroom/react-simple-maps.git",
-    "react-tooltip": "latest"
+    "react-tooltip": "latest",
+    "recharts": "^1.8.5"
   },
   "scripts": {
     "start": "react-scripts start",

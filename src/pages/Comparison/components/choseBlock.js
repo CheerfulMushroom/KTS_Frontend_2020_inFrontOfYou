@@ -2,6 +2,7 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import axios from "axios";
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import Columns from "./columns";
 
@@ -12,7 +13,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Choose() {
+export default function Choose(props) {
+
+    Choose.propTypes = {
+        color: PropTypes.string
+    };
+
     const classes = useStyles();
 
     const [data, setData] = useState([{title: "Загрузка"}]);
@@ -99,7 +105,7 @@ export default function Choose() {
                 )}
             />
 
-            <Columns className={classes.graph} coutryData={current}/>
+            <Columns color={props.color} className={classes.graph} coutryData={current}/>
         </div>
     );
 }

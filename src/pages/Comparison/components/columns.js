@@ -6,9 +6,13 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { makeStyles } from "@material-ui/core/styles";
-import {ChartComponent} from "bar-chart-simple";
 import PropTypes from "prop-types";
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
+
+import {
+    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+} from "recharts";
+
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -16,29 +20,74 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function BarChart(props) {
+
+export const useContainerDimensions = myRef => {
+    const getDimensions = () => ({
+        width: myRef.current.offsetWidth,
+        height: myRef.current.offsetHeight
+    })
+
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+
+    useEffect(() => {
+        const handleResize = () => {
+            setDimensions(getDimensions())
+        }
+
+        if (myRef.current) {
+            setDimensions(getDimensions())
+        }
+
+        window.addEventListener("resize", handleResize)
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [myRef])
+
+    return dimensions;
+};
+
+export default function Chart(props) {
     const classes = useStyles();
 
-    BarChart.propTypes = {
-        coutryData: PropTypes.object
+    Chart.propTypes = {
+        coutryData: PropTypes.object,
+        color: PropTypes.string
     };
 
     const data = [
         {
-            data_category: "Случаи",
-            data_value: props.coutryData.total_cases,
+            name: "Случаи",
+            people: props.coutryData.total_cases,
         },
         {
-            data_category: "Выздоровления",
-            data_value: props.coutryData.total_recovered,
-        }
+            name: "Выздоровления",
+            people: props.coutryData.total_recovered
+        },
     ];
 
+    const componentRef = useRef()
+    const { width } = useContainerDimensions(componentRef);
+
     return (
-        <div>
-            <ChartComponent key={props.coutryData.ourid}
+        <div ref={componentRef}>
+            <BarChart strokeDasharray="3 3"
+                key={props.coutryData.ourid}
+                width={width}
+                height={300}
                 data={data}
-                chart_type="bar_chart" />
+                margin={{
+                    top: 20, right: 30, left: 20, bottom: 5,
+                }}
+            >
+                <CartesianGrid />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="people" stackId="a" fill={props.color} />
+            </BarChart>
 
             <TableContainer className={classes.table} component={Paper}>
                 <Table aria-label="simple table">

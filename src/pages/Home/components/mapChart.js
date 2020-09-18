@@ -49,6 +49,9 @@ export default class MapChart extends React.Component {
     }
 
     render() {
+
+        console.log(this.props.countriesData);
+
         const countriesData = this.props.countriesData;
 
         const allCountriesValues = countriesData.map(((countryData) => countryData.value));

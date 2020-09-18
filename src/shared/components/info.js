@@ -82,10 +82,10 @@ export default function CustomizedDialogs() {
                         Команда: inFrontOfYou
                     </Typography>
                     <Typography gutterBottom>
-                        Курс
+                        Курс: Frontend школа KTS
                     </Typography>
                     <Typography gutterBottom>
-                        Студенты
+                        Студенты: Александр Лебедев, Марк Садыков
                     </Typography>
                 </DialogContent>
                 <DialogActions>

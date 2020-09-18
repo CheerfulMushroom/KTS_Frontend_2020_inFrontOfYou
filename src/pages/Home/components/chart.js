@@ -1,48 +1,69 @@
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import { makeStyles } from "@material-ui/core/styles";
+import {ChartComponent} from "bar-chart-simple";
+import PropTypes from "prop-types";
 import React from "react";
-import {Chart} from "react-charts";
 
-export default function MyChart(props) {
-    const data = React.useMemo(
-        () => [
-            {
-                label: "Новые случаи в день",
-                data: [
-                    [1, 1],
-                    [3, 2],
-                    [2, 4],
-                    [3, 2],
-                    [4, 7],
-                ],
-            },
-            {
-                label: "Смерти в день",
-                data: [
-                    [0, 3],
-                    [1, 1],
-                    [2, 5],
-                    [3, 6],
-                    [4, 4],
-                ],
-            },
-        ],
-        [],
-    );
+const useStyles = makeStyles((theme) => ({
+    table: {
+        marginTop: "30px"
+    },
+}));
 
-    const axes = React.useMemo(
-        () => [
-            {primary: true, type: "linear", position: "bottom"},
-            {type: "linear", position: "left"},
-        ],
-        [],
-    );
+export default function Chart(props) {
+    const classes = useStyles();
+
+    Chart.propTypes = {
+        coutryData: PropTypes.object,
+        color: PropTypes.string
+    };
+
+    const data = [
+        {
+            data_category: "Случаи",
+            data_value: props.coutryData.total_cases,
+        },
+        {
+            data_category: "Выздоровления",
+            data_value: props.coutryData.total_recovered,
+        }
+    ];
 
     return (
-        <div
-            style={{
-                height: "300px",
-            }}
-        >
-            <Chart data={data} axes={axes} />
+        <div>
+            <ChartComponent
+                key={props.coutryData.ourid}
+                data={data}
+                chart_type="bar_chart" />
+
+            <TableContainer className={classes.table} component={Paper}>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="center">Смерти</TableCell>
+                            <TableCell align="center">Смерти сегодня</TableCell>
+                            <TableCell align="center">Случаи сегодня</TableCell>
+                            <TableCell align="center">Актуальные случаи</TableCell>
+                            <TableCell align="center">Серьезные случаи</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell align="center">{props.coutryData.total_deaths}</TableCell>
+                            <TableCell align="center">{props.coutryData.total_new_deaths_today}</TableCell>
+                            <TableCell align="center">{props.coutryData.total_new_cases_today}</TableCell>
+                            <TableCell align="center">{props.coutryData.total_active_cases}</TableCell>
+                            <TableCell align="center">{props.coutryData.total_serious_cases}</TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     );
 }
